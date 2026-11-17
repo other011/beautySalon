@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+  body {
+    @apply bg-ivory font-sans text-ink-800;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold-400 ring-offset-2 ring-offset-ivory;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .section-title {
+    @apply font-display text-3xl font-semibold tracking-tight sm:text-4xl;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.25em] text-gold-500;
+  }
+  .card {
+    @apply rounded-2xl border border-sand-200 bg-white shadow-card;
+  }
+  .input {
+    @apply w-full rounded-xl border border-sand-300 bg-white px-4 py-2.5 text-sm text-ink-800 placeholder:text-ink-400 transition focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300/50 disabled:bg-sand-50 disabled:text-ink-500;
+  }
+  .input-error {
+    @apply border-red-400 focus:border-red-400 focus:ring-red-200;
+  }
+}
+
+/* FullCalendar theme */
+.fc {
+  --fc-border-color: #e8dccd;
+  --fc-button-bg-color: #2b2b2e;
+  --fc-button-border-color: #2b2b2e;
+  --fc-button-hover-bg-color: #3c3c41;
+  --fc-button-hover-border-color: #3c3c41;
+  --fc-button-active-bg-color: #b8935a;
+  --fc-button-active-border-color: #b8935a;
+  --fc-today-bg-color: #f4ead6;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #f7f2ec;
+  --fc-event-border-color: transparent;
+  font-size: 0.875rem;
+}
+.fc .fc-toolbar-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.fc .fc-button {
+  border-radius: 0.75rem;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+.fc .fc-button:focus { box-shadow: 0 0 0 2px #d4b77f80; }
+.fc .fc-timegrid-slot { height: 2.6rem; }
+/* bookings made without an account stand out: dashed outline + diagonal stripes */
+.guest-event { border: 2px dashed rgba(255, 255, 255, 0.95) !important; background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.16) 0 6px, transparent 6px 12px) !important; }
+.fc-event { cursor: pointer; border-radius: 8px !important; padding: 1px 3px; }
+.fc-bg-event { opacity: 0.55 !important; }
+@media (max-width: 640px) {
+  .fc .fc-toolbar { flex-direction: column; gap: 0.5rem; align-items: stretch; }
+  .fc .fc-toolbar-title { font-size: 1.25rem; text-align: center; }
+  .fc .fc-toolbar-chunk { display: flex; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
